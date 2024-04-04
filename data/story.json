@@ -1,0 +1,18 @@
+{
+    "story": [
+        {
+            "id": 1,
+            "illus": "",
+            "text": [
+                "Bonjour, ça y est, c'est le grand jour, vous allez entamer votre reconversion professionnelle.",
+                "Quel personnage souhaitez-vous incarner ?"
+            ],
+            "answers": [
+                "1 : M. X",
+                "2 : Mme X",
+                "3 : Chaussette, chien, mi labrador, mi Border Collie, 100% adorable"
+            ],
+            "path": [2, 3, 4]
+        }
+    ]
+}

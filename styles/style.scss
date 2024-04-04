@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$col1: hsl(120, 100%, 50%);
+$col2: hsl(120, 100%, 70%);
+$col3: transparent;
+
+body {
+  color: $col1;
+  text-shadow:
+    0 0 1px $col2;
+
+    &::after{
+      content:"";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background:
+        repeating-linear-gradient(#0005, hsla(120, 100%, 50%, .1) 1px 3px, #0005 4px 8px),
+        radial-gradient(circle at center, hsla(120, 100%, 50%,.5), hsla(120, 100%, 50%,.1)),
+        #000;
+      z-index: -1;
+    }
+}
+
+header,
+.terminal {
+  width: 61.25rem;
+  font-size: 1.5rem;
+  font-family: courier, monospace;
+  font-weight: bold;
+}
+
+.small-header{
+  display: none;
+}
+
+header {
+  margin: auto;
+}
+
+.terminal {
+  margin: 0 auto 15rem;
+  padding: 1rem;
+}
+
+.text {
+  margin-top: 2rem;
+  line-height: 1.75rem;
+
+}
+
+.answer-container {
+  position: relative;
+  margin: .5rem 0 1.5rem;
+  height: 1.25rem;
+
+  .answer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    background: none;
+    color: $col1;
+    text-shadow:
+      0 0 2px $col3;
+    width: .75rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    font-family: courier, monospace;
+    font-weight: bold;
+    outline: 2px solid $col2;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.active::after{
+    content:"";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: .75rem;
+    border-radius: 1px;
+    background: $col1;
+    box-shadow: 0 0 2px $col1;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink{
+  from, to{
+    background: hsla(120, 100%, 50%, 1);
+    box-shadow: 0 0 2px 2px hsla(120, 100%, 50%, 1);
+  }
+  50%{
+    background: $col3;
+    box-shadow: 0 0 2px 2px $col3;
+  }
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+}
+
+@media screen and (max-width: 992px){
+  :root{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .big-header{
+    display: none;
+  }
+  .small-header{
+    display: block;
+    font-size: 1.15rem;
+  }
+
+  header,
+.terminal {
+  width: 100%;
+}
+}
